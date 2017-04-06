@@ -1,10 +1,10 @@
 var config = require("./build.config.js");
 var fs = require('fs');
-var src_list = fs.readdirSync(config.src);
+var src_list = fs.readdirSync(config.srcpath);
 
 var content = '';
 src_list.forEach(function(src){
-	var stream = fs.readFileSync(config.src + src);
+	var stream = fs.readFileSync(config.srcpath + src);
 	content += stream;
 });
 
