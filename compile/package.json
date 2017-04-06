@@ -1,0 +1,9 @@
+{
+  "name": "nodejs_nn_builder",
+  "version": "1.0.0"
+  "description": "build js release of convnet neural network with compressed version"
+  "main" : "build.js"
+  "author" {
+        "name" : "Arthur.Deng"
+   }
+}
