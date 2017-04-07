@@ -100,7 +100,7 @@ See the **releases** page for this project to get the minified, compiled library
 - [convnet.js](http://cs.stanford.edu/people/karpathy/convnetjs/build/convnet.js)
 - [convnet-min.js](http://cs.stanford.edu/people/karpathy/convnetjs/build/convnet-min.js)
 
-## Compiling the library from src/ to build/
+## Using ant to compile the library from src/ to build/
 If you would like to add features to the library, you will have to change the code in `src/` and then compile the library into the `build/` directory. The compilation script simply concatenates files in `src/` and then minifies the result.
 
 The compilation is done using an ant task: it compiles `build/convnet.js` by concatenating the source files in `src/` and then minifies the result into `build/convnet-min.js`. Make sure you have **ant** installed (on Ubuntu you can simply *sudo apt-get install* it), then cd into `compile/` directory and run:
@@ -108,6 +108,27 @@ The compilation is done using an ant task: it compiles `build/convnet.js` by con
     $ ant -lib yuicompressor-2.4.8.jar -f build.xml
 
 The output files will be in `build/`
+
+## Using google closure to compile the library from src/ to build/
+
+The compilation is done using an google *closure* tool : totally based on node.js and **without java dependency** . You can modify build.config.js to customize to your project.
+
+      module.exports = { 
+        srcpath: path.join(root,'/src/'),
+        entry: path.join(root, '/build/'+"convnet.js"),
+        output: {
+          path: path.join(root, '/build/'),
+      	filename : 'convnet.min.js'
+        },
+        compiler: compile
+      }; 
+
+`entry`	is simply the concatenation file of all file under `src/`, `output.filename` is the compressed file of entry.
+
+run the following command to give the minified version :
+
+     $ node buid.js
+  
 ## Use in Node
 The library is also available on *node.js*:
 
