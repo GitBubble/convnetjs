@@ -4,11 +4,11 @@ const fs = require('fs');
 const root = path.resolve(__dirname,'..'); 
 
 module.exports = { 
-  src: path.join(root,'/src/'),
-  entry: path.join(root, '/build/'+"nn.js"),
+  srcpath: path.join(root,'/src/'),
+  entry: path.join(root, '/build/'+"convnet.js"),
   output: {
     path: path.join(root, '/build/'),
-	filename : 'nn.min.js'
+	filename : 'convnet.min.js'
   },
   compiler: compile
 }; 
